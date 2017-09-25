@@ -104,9 +104,12 @@ define KernelPackage/fs-cifs
   TITLE:=CIFS support
   KCONFIG:= \
 	CONFIG_CIFS \
+	CONFIG_CIFS_SMB2=y \
 	CONFIG_CIFS_XATTR=y \
 	CONFIG_CIFS_DFS_UPCALL=n \
-	CONFIG_CIFS_UPCALL=n
+	CONFIG_CIFS_UPCALL=n \
+	CONFIG_CIFS_SMB311=n \
+	CONFIG_KEYS=y
   FILES:=$(LINUX_DIR)/fs/cifs/cifs.ko
   AUTOLOAD:=$(call AutoLoad,30,cifs)
   $(call AddDepends/nls)
@@ -116,7 +119,9 @@ define KernelPackage/fs-cifs
     +kmod-crypto-md4 \
     +kmod-crypto-des \
     +kmod-crypto-ecb \
-    +kmod-crypto-sha256
+    +kmod-crypto-sha256 \
+    +kmod-fs-fscache \
+    +kmod-dnsresolver
 endef
 
 define KernelPackage/fs-cifs/description
