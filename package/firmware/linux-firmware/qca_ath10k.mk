@@ -101,5 +101,5 @@ define Package/ath10k-firmware-qca9984/install
 		$(PKG_BUILD_DIR)/ath10k/QCA9984/hw1.0/firmware-5.bin \
 		$(1)/lib/firmware/ath10k/QCA9984/hw1.0/firmware-5.bin
 endef
-$(eval $(call BuildPackage,ath10k-firmware-qca9984))
+#$(eval $(call BuildPackage,ath10k-firmware-qca9984))
 
